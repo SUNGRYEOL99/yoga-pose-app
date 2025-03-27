@@ -2,9 +2,16 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from PIL import ImageFont, ImageDraw, Image
+import platform
 
-# 한글 폰트 경로 설정 (Mac 기준)
-FONT_PATH = "/System/Library/Fonts/Supplemental/AppleGothic.ttf"
+# 운영 체제에 맞는 한글 폰트 경로 설정
+if platform.system() == "Windows":
+    FONT_PATH = "C:\\Windows\\Fonts\\malgun.ttf"  # Windows용 경로
+elif platform.system() == "Darwin":  # MacOS의 경우
+    FONT_PATH = "/System/Library/Fonts/Supplemental/AppleGothic.ttf"  # MacOS용 경로
+else:
+    raise OSError("지원되지 않는 운영 체제입니다.")
+
 
 # MoveNet 모델 로드
 interpreter = tf.lite.Interpreter(model_path="movenet/4.tflite")
