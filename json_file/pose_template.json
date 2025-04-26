@@ -1,0 +1,24 @@
+[
+  {
+    "frame": 1,
+    "angles": {
+      "left_elbow": 165,
+      "right_elbow": 173,
+      "left_knee": 179,
+      "right_knee": 179,
+      "back": 162
+    }
+  },
+
+
+  {
+    "frame": 2,
+    "angles": {
+      "left_elbow": 107,
+      "right_elbow": 108,
+      "left_knee": 174,
+      "right_knee": 178,
+      "back": 177
+    }
+  }
+]
