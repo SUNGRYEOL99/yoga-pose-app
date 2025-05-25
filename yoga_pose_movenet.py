@@ -3,13 +3,19 @@ import numpy as np
 import tensorflow as tf
 import json
 import os
+import platform
 import time
 from PIL import ImageFont, ImageDraw, Image
 from feedback_utils import speak, stop_speaking, generate_ai_feedback, is_speaking
 
 MODEL_PATH = "movenet/4.tflite"
 BASE_TEMPLATE_PATH = "json_file/pose_template.json"
-FONT_PATH = "/System/Library/Fonts/Supplemental/AppleGothic.ttf"
+#운영체제 인지해서 경로설정
+if platform.system() == "Windows":
+    FONT_PATH = "C:/Windows/Fonts/malgun.ttf"
+elif platform.system() == "Darwin":  # Mac OS
+    FONT_PATH = "/System/Library/Fonts/AppleGothic.ttf"
+
 os.makedirs("captures", exist_ok=True)
 
 def load_base_angles(path, frame_num=1):
