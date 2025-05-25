@@ -116,6 +116,9 @@ while cap.isOpened():
     if not ret:
         break
 
+    #카메라 좌우 반전
+    frame = cv2.flip(frame, 1)
+
     image_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     input_image = tf.image.resize_with_pad(tf.expand_dims(image_rgb, axis=0), 192, 192)
     input_image = tf.cast(input_image, dtype=tf.uint8)
