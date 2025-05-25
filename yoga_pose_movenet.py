@@ -103,6 +103,11 @@ def draw_korean_text(img, text, position, font_size=22, color=(255, 255, 255)):
     return cv2.cvtColor(np.array(img_pil), cv2.COLOR_RGB2BGR)
 
 cap = cv2.VideoCapture(0)
+
+# 웹캠 해상도 설정 / 화면 비율 수정
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+
 frame_num = 1
 total_frames = 2
 base_angles = load_base_angles(BASE_TEMPLATE_PATH, frame_num=frame_num)
